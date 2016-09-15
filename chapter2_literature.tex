@@ -1,0 +1,53 @@
+%\newpage
+\chapter{Literature Review}\label{chapter_literature_review}
+%\pagebreak
+\section{Previous Work}\label{section_previous_work}
+It is an ancient dream to make machines able to perform tasks like humans. The origin of character recognition can actually be found back in 1870 as C.R. Carey of Boston Massachusetts invented the retina scanner which was an image transmission system using a mosaic of photocells. Two decades later the Polish P. Nipkow invented the sequential scanner which was a major breakthrough both for modern television and reading machines. During the first decades of the $19^{th}$ century several attempts were made to develop devices to aid the blind through experiments with OCR. However, the modern version of OCR did not appear until the middle of the 1940’s with the development of the digital computer.
+
+Before the age of digital computers, there was no such researches in the field of handwriting recognition. The early researches after the digital age were concentrated either upon machine-printed text or upon a small set of well-separated handwritten text or symbols. Machine-printed \ac{cr} generally used template matching and for handwritten text, low-level image processing techniques were used on the binary image to extract feature vectors, which were then fed to statistical classifiers \cite{Suen1980}.
+
+CR research is somewhat limited until 1980 due to the lack of powerful computer hardware and data perception devices. The period from 1980-1990 witnessed a growth in CR system development \cite{Govindan1990} due to rapid growth in information technology \cite{Bozinovic1989}. However, the CR research was focused on basically the shape recognition techniques without using any semantic information. This led to an upper limit in the recognition rate, which was not sufficient in many practical applications. Research progress on the off-line and on-line recognition during 1980-1990 can be found in \cite{Suen1992} and \cite{Suen1990} respectively.
+
+After 1990, image processing techniques and pattern recognition techniques were combined using artificial intelligence. Along with powerful computers and more accurate electronic equipments such as scanners, cameras and electronic tablets, there came in efficient, modern use of methodologies such as artificial neural networks (ANNs), hidden Markov models (HMMs), fuzzy set reasoning and natural language processing.
+
+Character segmentation from cursive handwritten documents is a difficult task. So in literature most of the researches were conducted on separated characters. Segmentation based approach for isolated off-line Devanagari word recognition is described in \cite{Shaw2008}. Isolated Devanagari character recognition with Regular Expressions \& Minimum Edit Distance Method is described in \cite{Sandhya2008}. Research work \cite{Santosh2007} describes the template based Nepali alphanumeric handwriting recognition. Recent work on off-line devanagari character recognition carried out by Sharma et.al. (2006) uses quadratic classifiers for recognition and achieved $98.86\%$ recognition accuracy for devanagari numerals and $80.36\%$ recognition accuracy for devanagari characters \cite{Sharma2006}. Research work \cite{Sandhya2010} describes multiple classifier combination for Off-line Handwritten Devnagari Character Recognition and achieves $92.16\%$ recognition accuracy for devanagari characters. Paper \cite{Sandhya2010_1} compares \ac{svm} and \ac{ann} for off-line devanagari character recognition problem. Handwriting Recognition system based on cloud computing in given in paper \cite{Yan2011}.
+
+On Devnagari, a few techniques have been tested but no comparison of various recognition techniques available in literature is made. Also, there is lack of benchmark databases for Handwritten Devnagari Script to test the recognition systems. Only small lab experiments have been found in the literature.
+
+Although research on recognizing isolated handwritten characters has been quite successful, recognizing off-line cursive handwriting has been found to be a challenging problem. There is a large corpus of research on the application of character recognition in different domains, but no system to date has achieved the goal of system acceptability.
+
+\section{Individual Character Recognition}\label{section_individual_character_recognition}
+Recognition of individual characters have greater recognition accuracy than the recognition of whole words. But the segmentation of individual characters from handwritten documents is a error prone task due to the unconstrained domain of handwritings. Among all individual character recognition domains, individual digit recognition is much more researched. Due to connectivity and smooth drawing properties, digit recognition has higher accuracy than other handwriting recognition domains. There are many researches in the domain individual character recognition \cite{Govindan1990,Kan2002,Bunke2003,Sharma2006,Santosh2007,Sandhya2008,Sabri2010,Sandhya2010,Sandhya2010_1,Ashok2011,Vikas2011,Yan2011,Srikrishna2011,Gaurav2012}. Recognition algorithms used for the recognition of individual characters includes the probability based approaches, statistical approaches, neural network based approaches, etc.
+
+\section{Word Recognition}\label{section_word_recognition}
+Word-based recognition system determine the entire word without any attempt to segment or locate individual characters. The methods used in word-based recognition are usually similar to those of character recognition.These approaches avoid the individual letter segmentation problem. However, the whole word have higher writing variability than in the case of single character. Researches in the domain of word recognition are included in \cite{Bozinovic1989,Vinciarelli2002,Shaw2008}
+
+\section{Preprocessing}\label{section_preprocessing}
+For off-line handwriting recognition, most of the data is extracted from the scans of pages of handwritten text. The quality of these scanned pages is often poor due to scanning artifacts, noise or low resolution. From these text pages, text lines or single words have to be extracted for recognition, non-text background like figures and other markings need to be ignored.\par
+Depending on the captured image quality, the extracted text lines or words have to be preprocessed for further usage, for example, slant correction, skew correction, curve smoothing, size normalization, etc. Other preprocessing techniques include colour normalization, noise removal, image binarization, image skeletonization and components analysis for estimation of partial words and characters.
+
+\section{Feature Extraction}\label{section_feature_extraction_review}
+Feature extraction is one of the important stage of the handwriting recognition. Feature extraction is essential for efficient data representation and high recognition performance. A good feature set should represent the syntactic and semantic characteristic of a class that helps distinguish it from other classes. We can have many different features that can be extracted from preprocessed character images \cite{Jain1996,Jain2000,Zhang2004,Srikrishna2011}.
+
+There are three major categories of feature extraction techniques:
+\begin{itemize}
+\item \textbf{Geometrical and Topological Features:} Extracting and Counting Topological Structures, Geometrical Properties, Coding, Graphs, Trees, Strokes, Chain Codes etc.
+\item \textbf{Statistical Features:} Zoning, Crossing and Distances, Projections, Distribution measures, etc.
+\item \textbf{Global Transformation and Series Expansion Features:} Fourier Transform, Cosine Transform,
+wavelets, Moments, Karhuen-Loeve Expansion, etc.
+\end{itemize}
+
+\section{Recognition Methods}\label{section_recognition_strategies}
+There are large number of recognition techniques for the handwriting recognition problem \cite{Jain2000}. The major category of recognition strategies are: template matching, statistical methods, structural methods, and neural networks.
+
+\subsection{Template Matching}\label{section_template_matching}
+Template matching techniques determine the degree of similarity between two vectors (pixel distributions, shapes, curvatures, etc) in the feature space. Matching techniques can be grouped into three classes: direct matching, deformable templates and elastic matching, and relaxation matching. One of the most widely used technique for template matching is Dynamic Programming.
+
+\subsection{Statistical Techniques}\label{section_statistical_methods}
+Statistical methods are concerned with statistical decision functions and a set of optimal criteria, which determine the probability of the observed pattern belonging to a certain class. In statistical representation, the input pattern is described by a feature vector. Statistical techniques use concepts from statistical decision theory to establish decision boundaries between pattern classes. There are several statistical techniques for handwriting recognition, such as, k-Nearest Neighbour, Hidden Markov Model, Fuzzy set reasoning, Support Vector Machine, etc.
+
+\subsection{Structural Techniques}\label{section_structural_methods}
+In structural methods the handwritten characters are represented as unions of structural primitives. In the structural methods the character primitives extracted from handwriting are quantifiable, and one can find the relationship among them. Basically, structural methods can be categorized into two classes: grammatical methods and graphical methods.
+
+\subsection{Neural Network Techniques}\label{section_neural_network_methods}
+A Neural Network is a computing structure consisting of a massively parallel interconnection  of artificial adaptive neurons. The main advantages of neural networks is its ability to be trained automatically from examples, good performance with noisy data, possible parallel implementation, and efficient tools for learning large databases. There are many neural network based recognition techniques like multilayer perceprton, radial basis function, recurrent networks, self organizing maps, etc.

@@ -1,0 +1,107 @@
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+%\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{times}
+\usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{epstopdf}
+\usepackage[titletoc]{appendix}
+\usepackage{tocloft} 		% table of contents
+\usepackage{acronym}   	 	% list of abbreviations / acronyms
+\usepackage{float} 			% for floating the figures
+\usepackage{multirow} 		% for multirow tables
+\usepackage{caption}		% to manage captions
+\usepackage{listings}		% for adding source codes
+\usepackage[bw,numbered,framed,final]{aux/mcode}
+\numberwithin{equation}{chapter}
+\numberwithin{algorithm}{chapter}
+\setlength{\parskip}{1.0ex plus 0.5ex minus 0.5ex}
+\setlength{\parindent}{0em}
+\setcounter{secnumdepth}{4} % subsection level count
+\setcounter{tocdepth}{4}
+%\renewcommand{\refname}{Bibliography}
+
+\begin{document}
+%--------------Cover Pages-------------------------------
+% First Page
+\include{title_pages/pageI}
+%Second Page
+\include{title_pages/pageII}
+%Third Page
+\include{title_pages/pageIII}
+%Fourth Page
+\include{title_pages/pageIV}
+
+\pagenumbering{roman}
+\pagestyle{plain}
+%------------Acknowledgement----------------------------
+\addcontentsline{toc}{chapter}{Acknowledgement} \noindent
+\include{acknowledgement}
+
+%------------Abstract-----------------------------------
+\addcontentsline{toc}{chapter}{Abstract} \noindent
+\include{abstract}
+
+%------------Table of contents--------------------------
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\tableofcontents
+
+%-------------List of Figures---------------------------
+\newpage
+\phantomsection \label{listoffig}
+\addcontentsline{toc}{chapter}{List of Figures}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\listoffigures
+
+%-------------List of Tables----------------------------
+\newpage
+\phantomsection \label{listoftable}
+\addcontentsline{toc}{chapter}{List of Tables}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\listoftables
+
+%-------------List of Algorithms----------------------------
+\newpage
+\phantomsection \label{listofalgorithms}
+\addcontentsline{toc}{chapter}{List of Algorithms}
+\renewcommand{\listalgorithmname}{LIST OF ALGORITHMS}
+\listofalgorithms
+
+%------------ List of Abbreviations---------------------
+\include{abbreviations}
+
+\pagenumbering{arabic}
+% \pagestyle{headings}
+\include{chapter1_introduction} 	% Introduction
+\include{chapter2_literature}		% Literature Review
+\include{chapter3_system_overview}  % System Overview
+\include{chapter4_methodology} 		% Methodology
+\include{chapter5_implementation} 	% Implementation
+\include{chapter6_datasets} 		% Nepali Handwritten Database
+\include{chapter7_experiments} 		% Experiments and Results
+\include{chapter8_conclusion} 		% Conclusion
+
+%-----------appendix------------------------------
+\begin{appendices}
+\include{appendixA} 				% AppendixA
+\include{appendixB} 				% AppendixB
+\end{appendices}
+
+%-----------References------------------------------
+\renewcommand\bibname{References}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,158 @@
+
+Off-line Handwriting Recognition System evaluated on Handwritten Numeral Corpus gives better recognition result than other databases. The recognition accuracy of \ac{rbf} neural network training beats \ac{mlp} in all datasets.
+
+For the Handwritten Numeral Dataset the best recognition rate of $94.44\%$ is obtained. Given $576$ random samples for testing, the confusion matrix $CM$ is obtained as given in table \ref{table_numeral_cm}. $CM$ is an $10$x$10$ matrix with $CM(i,j)$ is the number of target samples of the $i^{th}$ class classified by the outputs into class $j$.
+
+\begin{table}[h] %Confusion Matrix of Numeral Database Testing.
+\centering
+\label{table_numeral_cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{Class} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/zero} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/one} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/two} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/three} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/four} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/five} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/six} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/seven} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/eight} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/nine}\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/zero} & 69 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/one} & 0 & 61 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/two} & 0 & 0 & 53 & 4 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/three} & 0 & 0 & 3 & 47 & 0 & 0 & 2 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/four} & 0 & 0 & 0 & 0 & 49 & 1 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/five} & 0 & 0 & 5 & 3 & 1 & 43 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/six} & 0 & 1 & 0 & 0 & 0 & 0 & 57 & 1 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/seven} & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 51 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/eight} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 64 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_numeral_images/numerals/nine} & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 0 & 50\tabularnewline
+\hline 
+\end{tabular}
+\caption{Confusion Matrix of Numeral Database Testing.}
+\end{table}
+
+For the Handwritten Vowel Dataset the recognition rate of $86.04\%$ is obtained. Given $530$ random samples for testing, the confusion matrix $CM$ is obtained as given in table \ref{table_numeral_cm}. $CM$ is an $12$x$12$ matrix with $CM(i,j)$ is the number of target samples of the $i^{th}$ class classified by the outputs into class $j$.
+
+\begin{table}[h] %Confusion Matrix of Vowel Database Testing.
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{Class} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/1a} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/2aa} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/3i} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/4ee} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/5u} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/6oo} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/7ye} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/8ai} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/9o} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/10au} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/11an} & \includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/12ah}\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/1a} & 45  & 6 & 0 & 0 & 0 & 4 & 0 & 0 & 1 & 0 & 1 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/2aa} & 3 & 36 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/3i} & 0 & 0 & 51 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 2 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/4ee} & 0 & 0 & 2 & 38 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/5u} & 1 & 0 & 2 & 0 & 35 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/6oo} & 2 & 0 & 0 & 0 & 1 & 36 & 0 & 0 & 0 & 0 & 0 & 2\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/7ye} & 1 & 0 & 0 & 0 & 0 & 0 & 40 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/8ai} & 1 & 0 & 0 & 0 & 0 & 0 & 2 & 36 & 2 & 0 & 1 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/9o} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 26 & 5 & 2 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/10au} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 6 & 32 & 2 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/11an} & 1 & 0 & 0 & 2 & 0 & 0 & 0 & 1 & 5 & 2 & 35 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.25]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_vowel_images/vowels/12ah} & 1 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 46 \tabularnewline
+\hline 
+\end{tabular}
+\caption{Confusion Matrix of Vowel Database Testing.}
+\end{table}
+
+
+For the Handwritten Consonant Dataset the recognition rate of $80.25\%$ is obtained. Given $891$ random samples for testing, the confusion matrix $CM$ is obtained as given in table \ref{table_consonant_cm}. $CM$ is an $36$x$36$ matrix with $CM(i,j)$ is the number of target samples of the $i^{th}$ class classified by the outputs into class $j$.
+
+
+\begin{table}
+\caption{Consonant Database Confusion Matrix (RBF (80.25))}
+
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{Class} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/1ka} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/2kha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/3ga} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/4gha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/5na} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/6cha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/7chha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/8ja} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/9jha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/10yna} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/11ta} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/12tha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/13da} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/14dha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/15yna} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/16ta} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/17tha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/18da} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/19dha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/20na} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/21pa} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/22pha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/23ba} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/24bha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/25ma} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/26ya} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/27ra} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/28la} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/29wa} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/30sa} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/31khasa} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/32saa} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/33ha} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/34kchya} & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/35tra}  & \includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/36gya}\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/1ka} & 16 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/2kha} & 0 & 21 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/3ga} & 0 & 0 & 24 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/4gha} & 0 & 0 & 0 & 21 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/5na} & 1 & 0 & 0 & 0 & 16 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 2 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 2 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/6cha} & 0 & 0 & 0 & 1 & 0 & 22 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/7chha} & 0 & 0 & 0 & 0 & 0 & 0 & 14 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/8ja} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 21 & 0 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/9jha} & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 19 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/10yna} & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 22 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 1 & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 3 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/11ta} & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 25 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/12tha} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 1 & 1 & 0 & 0 & 0 & 2 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/13da} & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 23 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/14dha} & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 22 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/15yna} & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 18 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/16ta} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 25 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/17tha} & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 16 & 0 & 2 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/18da} & 1 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 19 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/19dha} & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 19 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/20na} & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 7 & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/21pa} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 24 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/22pha} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 25 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/23ba} & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 2 & 0 & 0 & 0 & 0 & 22 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/24bha} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 20 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/25ma} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 22 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/26ya} & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 1 & 0 & 0 & 0 & 0 & 3 & 0 & 0 & 1 & 0 & 14 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/27ra} & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 23 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/28la} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 14 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/29wa} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 18 & 0 & 0 & 0 & 1 & 1 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/30sa} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 32 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/31khasa} & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 20 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/32saa} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 2 & 0 & 0 & 0 & 0 & 2 & 0 & 23 & 0 & 1 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/33ha} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 14 & 0 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/34kchya} & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 18 & 0 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/35tra} & 1 & 0 & 2 & 0 & 0 & 1 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 20 & 0\tabularnewline
+\hline 
+\includegraphics[scale=0.20]{ThesisFigures/Chapter6Figures/Nepali_Handwritings/sample_consonant_images/consonants/36gya} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 20\tabularnewline
+\hline 
+\end{tabular}
+\end{table}

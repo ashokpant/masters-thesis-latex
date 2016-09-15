@@ -1,0 +1,394 @@
+\chapter{Sample Source Codes}
+\section{Image Preprocessing Source Code}
+
+\subsection*{Read Image}
+\begin{lstlisting}
+image=imread('image.jpg');
+figure('units','normalized','outerposition',[0 0 1 1]);
+imshow(image);
+\end{lstlisting}
+
+\subsection*{Colour Normalization}
+\begin{lstlisting}
+figure('units','normalized','outerposition',[0 0 0.5 0.5]);
+subplot(1,2,1),imshow(image_rgb);
+title('RGB Image','FontSize',14);
+image_gray=rgb2gray(image_rgb);
+subplot(1,2,2),imshow(image_gray);
+title('Gray Image','FontSize',14);
+\end{lstlisting}
+
+\subsection*{Noise Removal}
+\begin{lstlisting}
+image_denoised=medfilt2(image_gray);
+image_denoised=image_denoised(2:end-1,2:end-1); % remove corner pixels
+subplot(1,2,1),imshow(image_gray);
+title('Gray Image','FontSize',14);
+subplot(1,2,2),imshow(image_denoised);
+title('Denoised Image','FontSize',14);
+\end{lstlisting}
+
+\subsection*{Image Segmentation}
+\begin{lstlisting}
+threshold=graythresh(image); % Otsu's method for finding global threshold
+image_binarized=im2bw(image_denoised,threshold);
+subplot(1,2,1),imshow(image_denoised);
+title('Denoised Image','FontSize',14);
+subplot(1,2,2),imshow(image_binarized);
+title('Binarized Image','FontSize',14);
+\end{lstlisting}
+
+\subsection*{Image Segmentation}
+\begin{lstlisting}
+image_inverted=~image_binarized;
+subplot(1,2,1),imshow(image_binarized);
+title('Binarized Image','FontSize',14);
+subplot(1,2,2),imshow(image_inverted);
+title('Inverted Image','FontSize',14);
+\end{lstlisting}
+
+\subsection*{Universe of Discourse Selection}
+\begin{lstlisting}
+image_discoursed=universe_of_discourse(image_inverted);
+subplot(1,2,1),imshow(image_inverted);
+title('Inverted Image','FontSize',14);
+subplot(1,2,2),imshow(image_discoursed);
+title('Discoursed Image','FontSize',14);
+\end{lstlisting}
+
+\subsection*{Image Size Normalization}
+\begin{lstlisting}
+image_normalized=imresize(image_discoursed,[36 36]);
+subplot(1,2,1),imshow(image_discoursed);
+title('Discoursed Image','FontSize',14);
+subplot(1,2,2),imshow(image_normalized);
+title('Size Normalized Image (36x36)','FontSize',14);
+\end{lstlisting}
+
+\subsection*{Image Skeletonization}
+\begin{lstlisting}
+image_skeletonized=bwmorph(image_normalized,'skel','inf');
+subplot(1,2,1),imshow(image_normalized);
+title('Size Normalized Image (36x36)','FontSize',14);
+subplot(1,2,2),imshow(image_skeletonized);
+title('Skeletonized Image','FontSize',14);
+\end{lstlisting}
+
+\section{Feature Extraction Source Code}
+\subsection*{Directional Features}
+\begin{lstlisting}
+features=[]; % initializing local feature vector
+% dividing given image into 3x3 zones
+[row,col]=size(image);
+zone_height=row/3; %12 pixels (because image size is normalized to 36x36)
+zone_width=col/3; %12 pixels (because image size is normalized to 36x36)
+
+zone11=image(1:zone_height,1:zone_width);
+zone12=image(1:zone_height,(zone_width+1):2*zone_width);
+zone13=image(1:zone_height,(2*zone_width+1):end);
+
+zone21=image((zone_height+1):2*zone_height,1:zone_width);
+zone22=image((zone_height+1):2*zone_height,(zone_width+1):2*zone_width);
+zone23=image((zone_height+1):2*zone_height,(2*zone_width+1):end);
+
+zone31=image((2*zone_height+1):end,1:zone_width);
+zone32=image((2*zone_height+1):end,(zone_width+1):2*zone_width);
+zone33=image((2*zone_height+1):end,(2*zone_width+1):end);
+
+% directional features
+zone11_features=lineclassifier(zone11);
+zone12_features=lineclassifier(zone12);
+zone13_features=lineclassifier(zone13);
+
+zone21_features=lineclassifier(zone21);
+zone22_features=lineclassifier(zone22);
+zone23_features=lineclassifier(zone23);
+
+zone31_features=lineclassifier(zone31);
+zone32_features=lineclassifier(zone32);
+zone33_features=lineclassifier(zone33);
+
+% Combining features from all nine zones of given image.
+%Each row of feature vector contains nine geometric feature elements.
+features=[zone11_features;zone12_features;zone13_features;
+zone21_features;zone22_features;zone23_features;zone31_features;
+zone32_features;zone33_features];
+% 'feature' vector is 81 dimensional row vector. 
+% As there are 9 zones with 9 feature elements each.
+
+% Display zonned images with corresponding feature vectors figure;
+subplot(3,3,1),imshow(zone11);title('zone11','FontSize',12);
+subplot(3,3,2),imshow(zone12);title('zone12','FontSize',12);
+subplot(3,3,3),imshow(zone13);title('zone13','FontSize',12);
+subplot(3,3,4),imshow(zone21);title('zone21','FontSize',12);
+subplot(3,3,5),imshow(zone22);title('zone22','FontSize',12);
+subplot(3,3,6),imshow(zone23);title('zone23','FontSize',12);
+subplot(3,3,7),imshow(zone31);title('zone31','FontSize',12);
+subplot(3,3,8),imshow(zone32);title('zone32','FontSize',12);
+subplot(3,3,9),imshow(zone33);title('zone33','FontSize',12);
+\end{lstlisting}
+
+\subsection*{Moment Invariant Features}
+\begin{lstlisting}
+% Normalized central moments are calculated from each image. These regional
+% descriptors form seven elememt feature vector as there are seven moments
+% invarients. Normalized Central Moments are independ of transalation,
+% rotation, scalling and can be used in pattern identification.
+image_size=numel(image); % Number of elemets in given image (36x36=1296)
+moments=invmoments(image); % 7 dimensional column vector
+\end{lstlisting}
+
+\subsection*{Euler Number Feature}
+\begin{lstlisting}
+euler_number_feature=bweuler(image);
+\end{lstlisting}
+
+\subsection*{Area of Character Skeleton Feature}
+\begin{lstlisting}
+area=sum(sum(image));
+\end{lstlisting}
+
+\subsection*{Centroid Features}
+\begin{lstlisting}
+[rows,cols] = size(image);
+x = ones(rows,1)*[1:cols]; %Matrix with each pixel set to its x coordinate
+y = [1:rows]'*ones(1,cols); % "     "     "    "    "  "   "  y    "
+
+area = sum(sum(image));
+meanx = sum(sum(double(image).*x))/area;
+meany = sum(sum(double(image).*y))/area;
+
+centroid.x=meanx;
+centroid.y=meany;
+
+centroid_features=[centroid.x centroid.y]';
+\end{lstlisting}
+
+\subsection*{Eccentricity Features}
+\begin{lstlisting}
+pixellist=regionprops(image,'pixellist') ;
+
+total_list=[];
+for i=1:numel(pixellist)
+total_list=[total_list;pixellist(i).PixelList];
+end
+list=total_list;
+
+if (isempty(list))
+MajorAxisLength = 0;
+MinorAxisLength = 0;
+Eccentricity = 0;
+else
+  % Assign X and Y variables so that we're measuring orientation
+  % counterclockwise from the horizontal axis.
+
+  xbar = centroid.x;
+  ybar = centroid.y;
+
+  x = list(:,1) - xbar;
+  y = -(list(:,2) - ybar); % This is negative for the
+  % orientation calculation (measured in the
+  % counter-clockwise direction).
+
+  N = length(x);
+
+  % Calculate normalized second central moments for the region. 1/12 is
+  % the normalized second central moment of a pixel with unit length.
+  uxx = sum(x.^2)/N + 1/12;
+  uyy = sum(y.^2)/N + 1/12;
+  uxy = sum(x.*y)/N;
+
+  % Calculate major axis length, minor axis length, and eccentricity.
+  common = sqrt((uxx - uyy)^2 + 4*uxy^2);
+  MajorAxisLength = 2*sqrt(2)*sqrt(uxx + uyy + common);
+  MinorAxisLength = 2*sqrt(2)*sqrt(uxx + uyy - common);
+  Eccentricity = 2*sqrt((MajorAxisLength/2)^2 -
+      (MinorAxisLength/2)^2) / MajorAxisLength;
+
+e=Eccentricity;
+end
+\end{lstlisting}
+\section{Training and Testing Source Code}
+\subsection*{MLP Training and Testing}
+\begin{lstlisting}
+% Initialize network parameters and proceeds training and testing
+inputs = input_feature_vector;
+targets = target_feature_vector;
+
+% Mapping all the input vectors to the range [-1 1]
+% [inputs,input_maping_setting]=mapminmax(inputs);
+% [targets,target_maping_setting]=mapminmax(targets);
+
+
+% Create a Feedforward Pattern Recognition Network
+% Feedforward network with one input layer, one hidden layer and
+% one output layer.
+
+hiddenSizes=25; % Number of neurons in hidden layer
+
+net = feedforwardnet(hiddenSizes);
+
+% Setup Division of Data for Training, Validation, Testing
+Q=size(input_feature_vector,2); % Number of image samples
+trainRatio = 70/100;    % training samples
+valRatio =   15/100;    % validation samples
+testRatio = 15/100;     % testing samples
+
+[trainInd,valInd,testInd] = dividerand(Q,trainRatio,valRatio,testRatio);
+
+% Select training and testing samples
+% training samples
+train_feature_vector=[];
+train_target_vector=[];
+idx=1;
+for i=1:size(trainInd,2)
+	train_feature_vector(:,idx)=input_feature_vector(:,trainInd(i));
+	train_target_vector(:,idx)=target_feature_vector(:,trainInd(i));
+	idx=idx+1;
+end
+
+% testing samples
+test_feature_vector=[];
+test_target_vector=[];
+idx=1;
+for i=1:size(testInd,2)
+	test_feature_vector(:,idx)=input_feature_vector(:,testInd(i));
+	test_target_vector(:,idx)=target_feature_vector(:,testInd(i));
+	idx=idx+1;
+end
+
+
+% Choose a Network Training Function
+   net.trainFcn = 'trainlm';  % Levenberg-Marquardt Learning Algorithm
+%  Function Parameters for 'trainlm'
+%
+%     Show Training Window Feedback   showWindow: true
+%     Show Command Line Feedback showCommandLine: false
+%     Command Line Frequency                show: 20
+%     Maximum Epochs                      epochs: 5000
+%     Maximum Training Time                 time: Inf
+%     Performance Goal                      goal: 0.1
+%     Minimum Gradient                  min_grad: 1e-005
+%     Maximum Validation Checks         max_fail: 6
+%     Mu                                      mu: 0.001
+%     Mu Decrease Ratio                   mu_dec: 0.1
+%     Mu Increase Ratio                   mu_inc: 10
+%     Maximum mu                          mu_max: 10000000000
+
+% Choose Network Weight Initialization  Function
+net.layers{1}.initFcn= 'initnw'; % Nguyen Widrow weight initialization
+net.layers{2}.initFcn= 'initnw';
+
+% Choose Network Transfer Function
+net.layers{1}.transferFcn='tansig'; % a = tansig(n) = 2/(1+exp(-2*n))-1
+net.layers{2}.transferFcn='tansig';
+
+% Choose a Performance Function
+net.performFcn = 'mse';  % Mean squared error
+
+% Choose a network goal (minimum mean square error)
+net.trainParam.goal = 1e-003;
+% Choose  time imterval to show the network status
+net.trainParam.show = 20;
+% Choose number of Epoches (iterations)
+net.trainParam.epochs = 1000;
+% Choose value of mu
+net.trainParam.mu=0.001;
+% memory reduction parameter
+net.efficiency.memoryReduction=1;
+% Choose Plot Functions
+% For a list of all plot functions type: help nnplot
+net.plotFcns = {'plotperform','plottrainstate','ploterrhist', ...
+  'plotregression', 'plotfit','plotconfusion'};
+
+% Train the Network
+[net,tr] = train(net,train_feature_vector,train_target_vector);
+
+% Test the Network
+outputs = sim(net,test_feature_vector);
+errors = gsubtract(test_target_vector,outputs);
+performance = perform(net,test_target_vector,outputs);
+
+% Overall Percentage of correct and incorrect classification
+[c,cm,ind,per] = confusion(test_target_vector,outputs);
+% c     Confusion value = fraction of samples misclassified
+% cm	S-by-S confusion matrix, where cm(i,j) is the number 
+% of samples whose target is the ith class that was classified as j
+
+fprintf('Percentage Correct Classification   : %f%%\n', 100*(1-c))
+fprintf('Percentage Incorrect Classification : %f%%\n', 100*c)
+fprintf('Time to Simulate the Network : %0.2f sec \n', tr.time(end))
+
+save mlp_trained_network;
+\end{lstlisting}
+
+\subsection*{RBF Training and Testing}
+\begin{lstlisting}
+% Initialize network parameters and proceeds training and testing
+inputs = input_feature_vector;
+targets = target_feature_vector;
+
+
+% Mapping all the input vectors to the range [-1 1]
+% [inputs,input_maping_setting]=mapminmax(inputs);
+% [targets,target_maping_setting]=mapminmax(targets);
+
+% Setup Division of Data for Training, Validation, Testing
+Q=size(input_feature_vector,2); % Number of image samples
+trainRatio = 70/100;    % training samples
+valRatio =   15/100;    % validation samples
+testRatio = 15/100;     % testing samples
+
+[trainInd,valInd,testInd] = dividerand(Q,trainRatio,valRatio,testRatio);
+
+% Select training and testing samples 
+% training samples
+train_feature_vector=[];
+train_target_vector=[];
+idx=1;
+for i=1:size(trainInd,2)
+	train_feature_vector(:,idx)=input_feature_vector(:,trainInd(i));
+	train_target_vector(:,idx)=target_feature_vector(:,trainInd(i));
+	idx=idx+1;
+end
+
+% testing samples
+test_feature_vector=[];
+test_target_vector=[];
+idx=1;
+for i=1:size(testInd,2)
+	test_feature_vector(:,idx)=input_feature_vector(:,testInd(i));
+	test_target_vector(:,idx)=target_feature_vector(:,testInd(i));
+	idx=idx+1;
+end
+
+% Initialize the Radial Basis Function Parameters
+
+goal=0.01;  % default=0.0
+spread=2.0; % default =1.0
+max_neurons=size(train_target_vector,2);
+neuron_increment=25;
+
+% Creating Radial Basis Network
+tic;
+net=newrb(train_feature_vector,train_target_vector,
+		  goal,spread,max_neurons,neuron_increment);
+time=toc;
+
+% -----------Testing the network---------------
+
+outputs=sim(net,test_feature_vector);
+errors = gsubtract(test_target_vector,outputs);
+% Overall Percentage of correct and incorrect classification
+[c,cm,ind,per] = confusion(test_target_vector,outputs);
+% c     Confusion value = fraction of samples misclassified
+% cm	S-by-S confusion matrix, where cm(i,j) is the number
+% of samples whose target is the ith class that was classified as j
+
+fprintf('Percentage Correct Classification   : %f%%\n', 100*(1-c));
+fprintf('Percentage Incorrect Classification : %f%%\n', 100*c);
+fprintf('Time to Simulate the Network : %0.2f sec \n', time);
+% --------------------------------------------------------
+
+save rbf_trained_network;
+\end{lstlisting}

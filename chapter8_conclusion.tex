@@ -1,0 +1,25 @@
+\newpage
+\chapter{CONCLUSION}\label{chapter_conclusion}
+
+\section{Conclusion}
+
+Off-line handwriting recognition with neural network is presented and evaluated on Nepali handwritten alphabet and numeral datasets. Two neural network based supervised classification methods (\ac{mlp} and \ac{rbf}) are experimented. The important preprocessing steps and feature extraction techniques for segmented characters are also described in full detail.
+
+Off-line Nepali Handwritten Character recognition is a difficult problem, not only because of the great amount of variations in human handwriting, but also because of the overlapped and joined characters. Recognition accuracy of the system greatly depends upon the nature of the data to be recognized.
+
+For the experimentation with the purposed off-line Nepali handwriting recognition system, self created off-line Nepali handwritten character datasets are used. Three are three well populated handwritten datasets for Nepali numerals, vowels and consonants respectively. All datasets are so created that, it can also be used as writer identification and document verification research. Nepali handwritten numeral dataset contains total $\textbf{2880}$ image samples with $288$ samples for each $10$ classes of Nepali numerals, Nepali handwritten vowel dataset contains total $\textbf{2652}$ image samples with $221$ samples for each $12$ classes of Nepali vowels and Nepali handwritten consonant dataset contains $\textbf{7340}$ image samples with $205$ samples for each $36$ classes of Nepali consonants.
+
+Off-line Nepali handwriting recognition system evaluated on Off-line Nepali numeral dataset gives best accuracy of $\textbf{94.44\%}$ over all other datasets. In other datasets, due to high variations on writing styles, shapes and cursive nature of characters, the recognition accuracy is decreases. But, very encouraging results are obtained while experimentation on all datasets. For Off-line Nepali vowel dataset, recognition accuracy of $\textbf{86.04\%}$ is obtained and for off-line Nepali consonant dataset, recognition accuracy of $\textbf{80.25\%}$ is obtained. In all cases, \ac{rbf} based recognition system outperforms \ac{mlp} based recognition system. \ac{rbf} based recognition engine takes little more time for training but gives a very encouraging results while testing.
+
+Recognition accuracy is directly proportional to the set of good features. So, feature extraction engine is the most important part of the recognition system. Good features describe the property of character image very well, which ultimately helps in learning well the recognition engine the particular pattern. For extracting good features from character image, it should be well pre-processed. So, pre-processing is also very important step of recognition. This research describes two very important category of feature extraction techniques: geometry based features and pixel distribution based features. Geometric features are very good descriptors of images for capturing physical shape of objects and statistical features are also very important and necessary descriptors for capturing the pixel distribution of the object.
+
+To further improve the quality of recognition system the combination of the proposed methods with additional preprocessing and feature extraction techniques are recommended. Especially, features extracting methods for shape informations which contain the semantic properties of the object have great impact on the efficiency of the recognition system.
+
+\section{Future Scope}
+Handwriting recognition is the research topic over past four decades, different methods have been explored by a large number of researchers to recognize characters. Various approaches have been proposed and tested in different parts of the world, including statistical methods, structural and syntactic methods and neural networks. No handwriting recognition system is cent percent accurate till now. The recognition accuracy of the neural networks proposed in this research work can be further improved. Large training corpus with varying writing styles can help in good generalization of the system. The future scope of this research is given below:
+\begin{itemize}
+\item Proposed system can be tested with known handwritten datasets like Germana database, IAM database, MNIST database, CEDAR database etc.
+\item Experimentation can be enhanced by taking other spatial domain features along with frequency domain features.
+\item Purposed system can be extended for the recognition of words, sentences and documents.
+\item Purposed system can be extended for multilingual character recognition.
+\end{itemize}
